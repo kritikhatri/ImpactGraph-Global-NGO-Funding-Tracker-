@@ -10,14 +10,39 @@
     <header>
         <h1>GastroMetric</h1>
         <p>Global Culinary Intelligence Tracker</p>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search by meal or ingredient...">
-            <button id="searchBtn">Search</button>
+        
+        <div class="controls-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by meal name...">
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div class="filter-sort-box">
+                <label for="filterCategory">Filter:</label>
+                <select id="filterCategory">
+                    <option value="All">All Categories</option>
+                    <option value="Beef">Beef</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Seafood">Seafood</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                </select>
+
+                <label for="sortOrder">Sort:</label>
+                <select id="sortOrder">
+                    <option value="default">Original</option>
+                    <option value="asc">Name (A-Z)</option>
+                    <option value="desc">Name (Z-A)</option>
+                </select>
+            </div>
         </div>
     </header>
 
     <main>
-        <div id="loading" class="hidden">Fetching Global Data...</div>
+        <div id="loading" class="hidden">Fetching Global Culinary Data...</div>
+        
+        <p id="resultsCount" class="results-text"></p>
+
         <div id="mealGrid" class="meal-grid">
             </div>
     </main>
@@ -25,3 +50,4 @@
     <script src="app.js"></script>
 </body>
 </html>
+
