@@ -64,3 +64,24 @@ button {
     font-size: 0.8rem;
     margin-right: 5px;
 }
+.fav-btn {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #e67e22;
+    background: transparent;
+    color: #e67e22;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fav-btn.active {
+    background: #e67e22;
+    color: white;
+}
+
+.fav-btn:hover {
+    background: #d35400;
+    color: white;
+}
