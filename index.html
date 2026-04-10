@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GastroMetric | Global Food Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-titles">
+                <h1>GastroMetric</h1>
+                <p>Global Culinary Intelligence Tracker</p>
+            </div>
+            <button id="darkModeToggle" class="btn btn-outline">🌙 Dark Mode</button>
+        </div>
+        
+        <div class="controls-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by meal name...">
+                <button id="searchBtn" class="btn btn-primary">Search</button>
+                <button id="randomBtn" class="btn btn-secondary">Surprise Me 🎲</button>
+            </div>
+
+            <div class="filter-sort-box">
+                <label for="filterCategory">Filter:</label>
+                <select id="filterCategory">
+                    <option value="All">All Categories</option>
+                    <option value="Beef">Beef</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Seafood">Seafood</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                </select>
+
+                <label for="filterArea">Area:</label>
+                <select id="filterArea">
+                    <option value="All">All Areas</option>
+                </select>
+
+                <label for="sortOrder">Sort:</label>
+                <select id="sortOrder">
+                    <option value="default">Original</option>
+                    <option value="asc">Name (A-Z)</option>
+                    <option value="desc">Name (Z-A)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Tracker Dashboard Layout -->
+        <div class="stats-row" id="statsRow">
+            <div class="stat-box">
+                <h4>Total Meals Displayed</h4>
+                <p id="totalMealsStat">0</p>
+            </div>
+            <div class="stat-box">
+                <h4>Most Popular Region</h4>
+                <p id="popularRegionStat">N/A</p>
+            </div>
+            <div class="stat-box">
+                <h4>Saved to Tracker</h4>
+                <p id="totalFavsStat">0</p>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">Fetching Global Culinary Data...</div>
+        
+        <p id="resultsCount" class="results-text"></p>
+
+        <div id="mealGrid" class="meal-grid">
+            </div>
+        
+        <div id="emptyState" class="empty-state hidden">
+            <div class="empty-state-content">
+                <h2>No meals found</h2>
+                <p>Try adjusting your search or filters.</p>
+                <button id="clearFiltersBtn" class="btn btn-primary">Clear Filters</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="opp.js"></script>
+</body>
+</html>
