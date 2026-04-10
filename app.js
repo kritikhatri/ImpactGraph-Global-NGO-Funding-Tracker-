@@ -82,3 +82,43 @@ sortOrder.addEventListener('change', applyInteractions);
 
 
 fetchMeals();
+
+
+let favorites = JSON.parse(localStorage.getItem('gastroFavs')) || [];
+
+function displayMeals(meals) {
+    if (meals.length === 0) {
+        mealGrid.innerHTML = `<p>No results match your criteria.</p>`;
+        return;
+    }
+
+    mealGrid.innerHTML = meals.map(meal => {
+        const isFav = favorites.includes(meal.idMeal);
+        return `
+            <div class="meal-card">
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+                <div class="meal-info">
+                    <h3>${meal.strMeal}</h3>
+                    <div class="tags">
+                        <span class="tag">${meal.strArea}</span>
+                        <span class="tag category">${meal.strCategory}</span>
+                    </div>
+                    <button class="fav-btn ${isFav ? 'active' : ''}" 
+                            onclick="toggleFavorite('${meal.idMeal}')">
+                        ${isFav ? '❤️ Saved' : '🤍 Save to Tracker'}
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function toggleFavorite(id) {
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(favId => favId !== id);
+    } else {
+        favorites.push(id);
+    }
+    localStorage.setItem('gastroFavs', JSON.stringify(favorites));
+    applyInteractions(); 
+}
